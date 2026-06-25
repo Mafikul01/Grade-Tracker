@@ -3,13 +3,28 @@ import 'package:provider/provider.dart';
 import '../providers/subject_provider.dart';
 import '../providers/theme_provider.dart';
 
-class AddSubjectScreen extends StatelessWidget {
+/// Screen for adding a new subject.
+class AddSubjectScreen extends StatefulWidget {
+  const AddSubjectScreen({super.key});
+
+  @override
+  State<AddSubjectScreen> createState() => _AddSubjectScreenState();
+}
+
+class _AddSubjectScreenState extends State<AddSubjectScreen> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _markController = TextEditingController();
   final _nameFocusNode = FocusNode();
 
-  AddSubjectScreen({super.key});
+  @override
+  void dispose() {
+    // Dispose controllers and focus nodes to avoid memory leaks.
+    _nameController.dispose();
+    _markController.dispose();
+    _nameFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +71,9 @@ class AddSubjectScreen extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.primary.withValues(alpha: 0.2),
+                          color: theme.colorScheme.primary.withValues(
+                            alpha: 0.2,
+                          ),
                           blurRadius: 20,
                           spreadRadius: 5,
                         ),
@@ -125,12 +142,12 @@ class AddSubjectScreen extends StatelessWidget {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   context.read<SubjectProvider>().addSubject(
-                                        _nameController.text,
-                                        int.parse(_markController.text),
-                                      );
+                                    _nameController.text,
+                                    int.parse(_markController.text),
+                                  );
                                   _nameController.clear();
                                   _markController.clear();
-                                  
+
                                   // Shift focus back to subject name
                                   _nameFocusNode.requestFocus();
 
@@ -140,8 +157,11 @@ class AddSubjectScreen extends StatelessWidget {
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      content: const Text('Subject Added Successfully!'),
-                                      backgroundColor: theme.colorScheme.primary,
+                                      content: const Text(
+                                        'Subject Added Successfully!',
+                                      ),
+                                      backgroundColor:
+                                          theme.colorScheme.primary,
                                     ),
                                   );
                                 }

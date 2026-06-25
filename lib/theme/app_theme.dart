@@ -5,10 +5,10 @@ class AppTheme {
   static const Color primaryColor = Color(0xFF009688);
   static const Color secondaryColor = Color(0xFF00BCD4);
   static const Color accentColor = Color(0xFF4CAF50);
-  
+
   static const Color backgroundLight1 = Color(0xFFE0F2F1);
   static const Color backgroundLight2 = Color(0xFFF0F4F8);
-  
+
   static const Color backgroundDark1 = Color(0xFF1E272E);
   static const Color backgroundDark2 = Color(0xFF101820);
 
@@ -22,7 +22,9 @@ class AppTheme {
         tertiary: accentColor,
         surface: Colors.white,
         onSurface: const Color(0xFF2D3436),
-        surfaceContainerHighest: const Color(0xFFF0F4F8), // Used for second gradient color
+        surfaceContainerHighest: const Color(
+          0xFFF0F4F8,
+        ), // Used for second gradient color
       ),
       scaffoldBackgroundColor: const Color(0xFFF0F4F8),
       cardTheme: CardThemeData(
@@ -65,7 +67,10 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.white,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 18,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,
@@ -99,7 +104,9 @@ class AppTheme {
         tertiary: accentColor,
         surface: const Color(0xFF1E272E),
         onSurface: Colors.white,
-        surfaceContainerHighest: const Color(0xFF101820), // Used for second gradient color
+        surfaceContainerHighest: const Color(
+          0xFF101820,
+        ), // Used for second gradient color
       ),
       scaffoldBackgroundColor: const Color(0xFF101820),
       cardTheme: CardThemeData(
@@ -141,7 +148,10 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: const Color(0xFF2D3436),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 18,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,

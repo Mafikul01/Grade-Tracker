@@ -51,15 +51,19 @@ class SubjectListScreen extends StatelessWidget {
                       Text(
                         'Your list is empty',
                         style: theme.textTheme.headlineSmall?.copyWith(
-                              color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
-                              fontWeight: FontWeight.bold,
-                            ),
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.5,
+                          ),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         'Add some subjects to track them',
                         style: TextStyle(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.4,
+                          ),
                         ),
                       ),
                     ],

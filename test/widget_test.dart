@@ -6,7 +6,9 @@ import 'package:grade_tracker/providers/theme_provider.dart';
 import 'package:grade_tracker/providers/navigation_provider.dart';
 
 void main() {
-  testWidgets('App starts and shows Add Subject screen', (WidgetTester tester) async {
+  testWidgets('App starts and shows Add Subject screen', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       MultiProvider(
         providers: [
@@ -18,7 +20,10 @@ void main() {
       ),
     );
 
-    expect(find.text('Add Subject'), findsNWidgets(2)); // One in AppBar, one in Button
+    expect(
+      find.text('Add Subject'),
+      findsNWidgets(2),
+    ); // One in AppBar, one in Button
     expect(find.text('Enter Subject Details'), findsOneWidget);
   });
 }

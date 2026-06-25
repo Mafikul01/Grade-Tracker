@@ -38,7 +38,10 @@ class SummaryScreen extends StatelessWidget {
           child: Consumer<SubjectProvider>(
             builder: (context, provider, child) {
               return ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 12,
+                ),
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 4, bottom: 16),
@@ -53,25 +56,37 @@ class SummaryScreen extends StatelessWidget {
                     title: 'Total Subjects',
                     value: '${provider.totalSubjects}',
                     icon: Icons.auto_stories_rounded,
-                    gradientColors: const [Color(0xFF4FACFE), Color(0xFF00F2FE)],
+                    gradientColors: const [
+                      Color(0xFF4FACFE),
+                      Color(0xFF00F2FE),
+                    ],
                   ),
                   SummaryCard(
                     title: 'Average Marks',
                     value: provider.averageMark.toStringAsFixed(1),
                     icon: Icons.analytics_rounded,
-                    gradientColors: const [Color(0xFFFA709A), Color(0xFFFEE140)],
+                    gradientColors: const [
+                      Color(0xFFFA709A),
+                      Color(0xFFFEE140),
+                    ],
                   ),
                   SummaryCard(
                     title: 'Overall Grade',
                     value: provider.overallGrade,
                     icon: Icons.workspace_premium_rounded,
-                    gradientColors: const [Color(0xFF43E97B), Color(0xFF38F9D7)],
+                    gradientColors: const [
+                      Color(0xFF43E97B),
+                      Color(0xFF38F9D7),
+                    ],
                   ),
                   SummaryCard(
                     title: 'Subjects Passed',
                     value: '${provider.passingSubjectsCount}',
                     icon: Icons.verified_user_rounded,
-                    gradientColors: const [Color(0xFF667EEA), Color(0xFF764BA2)],
+                    gradientColors: const [
+                      Color(0xFF667EEA),
+                      Color(0xFF764BA2),
+                    ],
                   ),
                 ],
               );

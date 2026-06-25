@@ -18,7 +18,7 @@ class SummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
@@ -45,7 +45,9 @@ class SummaryCard extends StatelessWidget {
               icon,
               size: 100,
               // Adjust icon opacity based on theme for better visibility
-              color: theme.colorScheme.onPrimary.withValues(alpha: isDark ? 0.15 : 0.25),
+              color: theme.colorScheme.onPrimary.withValues(
+                alpha: isDark ? 0.15 : 0.25,
+              ),
             ),
           ),
           Padding(
@@ -58,7 +60,11 @@ class SummaryCard extends StatelessWidget {
                     color: theme.colorScheme.onPrimary.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Icon(icon, color: theme.colorScheme.onPrimary, size: 28),
+                  child: Icon(
+                    icon,
+                    color: theme.colorScheme.onPrimary,
+                    size: 28,
+                  ),
                 ),
                 const SizedBox(width: 20),
                 Expanded(
@@ -68,7 +74,9 @@ class SummaryCard extends StatelessWidget {
                       Text(
                         title,
                         style: TextStyle(
-                          color: theme.colorScheme.onPrimary.withValues(alpha: 0.8),
+                          color: theme.colorScheme.onPrimary.withValues(
+                            alpha: 0.8,
+                          ),
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),

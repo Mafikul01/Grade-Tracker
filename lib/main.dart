@@ -42,10 +42,10 @@ class StudentGradeTrackerApp extends StatelessWidget {
 class MainScaffold extends StatelessWidget {
   const MainScaffold({super.key});
 
-  static final List<Widget> _screens = [
+  static const List<Widget> _screens = [
     AddSubjectScreen(),
-    const SubjectListScreen(),
-    const SummaryScreen(),
+    SubjectListScreen(),
+    SummaryScreen(),
   ];
 
   @override
@@ -54,10 +54,7 @@ class MainScaffold extends StatelessWidget {
     final navProvider = context.watch<NavigationProvider>();
 
     return Scaffold(
-      body: IndexedStack(
-        index: navProvider.currentIndex,
-        children: _screens,
-      ),
+      body: IndexedStack(index: navProvider.currentIndex, children: _screens),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -74,12 +71,20 @@ class MainScaffold extends StatelessWidget {
           elevation: 0,
           backgroundColor: theme.colorScheme.surface,
           selectedItemColor: theme.colorScheme.primary,
-          unselectedItemColor: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+          unselectedItemColor: theme.colorScheme.onSurface.withValues(
+            alpha: 0.5,
+          ),
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: true,
           showUnselectedLabels: true,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-          unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+          ),
+          unselectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 12,
+          ),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.add_circle_rounded),

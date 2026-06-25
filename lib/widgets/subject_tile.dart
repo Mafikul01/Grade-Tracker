@@ -5,11 +5,7 @@ class SubjectTile extends StatelessWidget {
   final Subject subject;
   final VoidCallback onDelete;
 
-  const SubjectTile({
-    super.key,
-    required this.subject,
-    required this.onDelete,
-  });
+  const SubjectTile({super.key, required this.subject, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +24,11 @@ class SubjectTile extends StatelessWidget {
         ),
         alignment: Alignment.centerLeft,
         padding: const EdgeInsets.only(left: 25),
-        child: Icon(Icons.delete_outline, color: theme.colorScheme.onError, size: 30),
+        child: Icon(
+          Icons.delete_outline,
+          color: theme.colorScheme.onError,
+          size: 30,
+        ),
       ),
       secondaryBackground: Container(
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -38,13 +38,20 @@ class SubjectTile extends StatelessWidget {
         ),
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 25),
-        child: Icon(Icons.delete_outline, color: theme.colorScheme.onError, size: 30),
+        child: Icon(
+          Icons.delete_outline,
+          color: theme.colorScheme.onError,
+          size: 30,
+        ),
       ),
       child: Card(
         child: Container(
           padding: const EdgeInsets.all(8),
           child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 4,
+            ),
             leading: Container(
               width: 50,
               height: 50,
@@ -65,10 +72,7 @@ class SubjectTile extends StatelessWidget {
             ),
             title: Text(
               subject.name,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             subtitle: Row(
               children: [
@@ -86,7 +90,10 @@ class SubjectTile extends StatelessWidget {
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(Icons.chevron_right, color: theme.colorScheme.onSurfaceVariant),
+              child: Icon(
+                Icons.chevron_right,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
             ),
           ),
         ),
