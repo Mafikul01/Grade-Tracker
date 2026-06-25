@@ -71,9 +71,8 @@ class _AddSubjectScreenState extends State<AddSubjectScreen> {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.primary.withValues(
-                            alpha: 0.2,
-                          ),
+                          color:
+                              theme.colorScheme.primary.withValues(alpha: 0.2),
                           blurRadius: 20,
                           spreadRadius: 5,
                         ),
@@ -130,6 +129,7 @@ class _AddSubjectScreenState extends State<AddSubjectScreen> {
                                 final mark = int.tryParse(value);
                                 if (mark == null) {
                                   return 'Please enter a valid number';
+                                  
                                 }
                                 if (mark < 0 || mark > 100) {
                                   return 'Mark must be between 0 and 100';
@@ -142,18 +142,21 @@ class _AddSubjectScreenState extends State<AddSubjectScreen> {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   context.read<SubjectProvider>().addSubject(
-                                    _nameController.text,
-                                    int.parse(_markController.text),
-                                  );
+                                        _nameController.text,
+                                        int.parse(_markController.text),
+                                      );
                                   _nameController.clear();
                                   _markController.clear();
 
                                   // Shift focus back to subject name
                                   _nameFocusNode.requestFocus();
 
-                                  ScaffoldMessenger.of(context).showSnackBar(
+                                  final messenger = ScaffoldMessenger.of(context);
+                                  messenger.clearSnackBars();
+                                  messenger.showSnackBar(
                                     SnackBar(
                                       behavior: SnackBarBehavior.floating,
+                                      duration: const Duration(seconds: 3),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
@@ -164,6 +167,10 @@ class _AddSubjectScreenState extends State<AddSubjectScreen> {
                                           theme.colorScheme.primary,
                                     ),
                                   );
+                                  
+                                  Future.delayed(const Duration(seconds: 3), () {
+                                    messenger.hideCurrentSnackBar();
+                                  });
                                 }
                               },
                               child: const Text(

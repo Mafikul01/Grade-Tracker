@@ -79,18 +79,27 @@ class SubjectListScreen extends StatelessWidget {
                   return SubjectTile(
                     subject: subject,
                     onDelete: () {
-                      provider.deleteSubject(index);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                      final messenger = ScaffoldMessenger.of(context);
+                      
+                      // 1. Wipe everything
+                      messenger.clearSnackBars();
+                      
+                      // 2. Show the notice with a hard duration
+                      messenger.showSnackBar(
+                        const SnackBar(
+                          content: Text('Subject deleted'),
+                          duration: Duration(seconds: 3),
                           behavior: SnackBarBehavior.floating,
-                          content: const Text('Subject deleted'),
-                          action: SnackBarAction(
-                            label: 'DISMISS',
-                            textColor: theme.colorScheme.onPrimary,
-                            onPressed: () {},
-                          ),
                         ),
                       );
+
+                      // 3. Absolute fail-safe: manual hide after 3 seconds
+                      Future.delayed(const Duration(seconds: 3), () {
+                        messenger.hideCurrentSnackBar();
+                      });
+
+                      // 4. Update the data
+                      provider.deleteSubject(index);
                     },
                   );
                 },

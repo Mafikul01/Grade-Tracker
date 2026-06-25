@@ -96,6 +96,11 @@ class AppTheme {
         labelStyle: const TextStyle(color: Colors.grey),
         prefixIconColor: primaryColor,
       ),
+      snackBarTheme: SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 4,
+      ),
     );
   }
 
@@ -178,6 +183,11 @@ class AppTheme {
         ),
         labelStyle: const TextStyle(color: Colors.grey),
         prefixIconColor: secondaryColor,
+      ),
+      snackBarTheme: SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 4,
       ),
     );
   }
